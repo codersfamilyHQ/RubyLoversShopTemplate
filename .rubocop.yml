@@ -21,7 +21,5 @@ Style/BlockComments:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
-
 Style/Documentation:
   Enabled: false
-
