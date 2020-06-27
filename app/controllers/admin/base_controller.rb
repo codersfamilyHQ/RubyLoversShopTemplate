@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class BaseController < ApplicationController
     layout 'admin'
@@ -7,7 +9,7 @@ module Admin
     private
 
     def authorize_admin!
-      if !current_user.admin?
+      unless current_user.admin?
         flash[:error] = 'You are not authorized'
         redirect_to root_path
       end
