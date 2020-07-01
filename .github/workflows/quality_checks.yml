@@ -90,6 +90,7 @@ jobs:
         RAILS_ENV: test
       run: |
         bin/rails db:create
+
     - name: Setup test database
       env:
         PGHOST: localhost
@@ -97,6 +98,7 @@ jobs:
         RAILS_ENV: test
       run: |
         bin/rails db:schema:load
+
     - name: Run Tests
       env:
         PGHOST: localhost
