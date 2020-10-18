@@ -9,8 +9,8 @@ RSpec.describe '/admin', type: :request do
     sign_in(admin)
   end
 
-  describe '/dashboard' do
-    subject(:request) { get '/admin/dashboard' }
+  describe '/' do
+    subject(:request) { get '/admin' }
 
     context 'when admin is signed in' do
       it 'renders page content' do

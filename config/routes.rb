@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, path: 'user'
 
   namespace :admin do
+    resources :products
+
     root to: 'pages#dashboard'
   end
 
