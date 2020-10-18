@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe '/admin/products', type: :request do
   let!(:product) { create(:product) }
-  let!(:admin) {create(:admin_user) }
-  let(:valid_attributes) {
+  let!(:admin) { create(:admin_user) }
+  let(:valid_attributes) do
     attributes_for(:product)
-  }
+  end
 
   let(:invalid_attributes) do
     {
@@ -63,9 +63,7 @@ RSpec.describe '/admin/products', type: :request do
       subject(:request_call) { post '/admin/products', params: { product: invalid_attributes } }
 
       it 'does not create a new Product' do
-        expect {
-          request_call
-        }.to change(Product, :count).by(0)
+        expect { request_call }.to change(Product, :count).by(0)
       end
 
       it 'renders a successful response' do
@@ -114,9 +112,7 @@ RSpec.describe '/admin/products', type: :request do
 
   describe 'DELETE /destroy' do
     it 'destroys the requested product' do
-      expect {
-        delete "/admin/products/#{product.id}"
-      }.to change(Product, :count).by(-1)
+      expect { delete "/admin/products/#{product.id}" }.to change(Product, :count).by(-1)
     end
   end
 end

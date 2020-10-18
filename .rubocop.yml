@@ -15,6 +15,8 @@ Layout/LineLength:
   Max: 120
 Metrics/ClassLength:
   Max: 200
+Metrics/BlockLength:
+  Max: 200
 Metrics/MethodLength:
   Enabled: false
 Style/BlockComments:
