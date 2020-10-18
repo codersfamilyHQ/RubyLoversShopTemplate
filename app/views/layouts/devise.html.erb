@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby Lovers Shop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render 'flash_messages' %>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col d-flex align-items-center flex-column">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <%= javascript_pack_tag 'application' %>
+</html>

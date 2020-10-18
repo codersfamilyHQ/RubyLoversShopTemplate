@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="container">
+    <%= link_to 'Admin', admin_root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Products', '#', class: 'nav-link' %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <% if admin_user_signed_in? %>
+            <%= link_to 'Logout', destroy_admin_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'nav-link btn btn-outline-secondary btn-inverse' %>
+          <% else %>
+            <%= link_to 'Log in', new_admin_user_session_path, class: 'nav-link btn btn-outline-secondary btn-inverse' %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
