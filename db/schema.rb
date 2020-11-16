@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 2020_10_28_201206) do
 
   create_table "orders", force: :cascade do |t|
     t.decimal "amount"
-    t.integer "currency", default: 0
+    t.integer "currency", default: 0, null: false
     t.string "p24_session_id"
-    t.string "p24_method"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

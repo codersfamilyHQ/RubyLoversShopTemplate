@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :order do
-    amount { "9.99" }
-    currency { 1 }
-    p24_session_id { "MyString" }
-    p24_method { "MyString" }
-    user { nil }
+    amount { 9.99 }
+    p24_session_id { SecureRandom.uuid }
+    user
   end
 end
