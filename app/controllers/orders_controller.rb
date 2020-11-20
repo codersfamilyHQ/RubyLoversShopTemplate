@@ -5,16 +5,21 @@ class OrdersController < ApplicationController
   def create
     result = ::Orders::Create.new.call(user: current_user, amount: 50)
 
-    # binding.pry
     if result.success?
-      redirect_to "https://sandbox.przelewy24.pl/trnRequest/#{result.value!}"
+      token = result.value!
+      redirect_to "#{Rails.application.credentials.przelewy24[:gateway_url]}/trnRequest/#{token}"
     else
-      redirect_to root_path, notice: 'fail'
+      redirect_to root_path, notice: result.failure
     end
-    # zarejestrowania transakcji oraz przekierowanie na strone platnosciw
   end
 
   def callback
-    params
+    result = ::Orders::Finalize.new.call(user: current_user, amount: 50)
+
+    if result.success?
+      head :ok
+    else
+      head :unprocessable_entity
+    end
   end
 end
